@@ -35,7 +35,7 @@ class OperateReport:
         worksheet.merge_range('A1:E1', '测试报告总概况', define_format_H1)
         worksheet.merge_range('A2:E2', '测试概括', define_format_H2)
 
-        _write_center(worksheet, "A3", 'APP名称', self.wd)
+        _write_center(worksheet, "A3", 'web名称', self.wd)
         _write_center(worksheet, "A4", 'APP大小', self.wd)
         _write_center(worksheet, "A5", 'APP版本', self.wd)
         _write_center(worksheet, "A6", '测试日期', self.wd)
