@@ -1,6 +1,6 @@
 ﻿DEFAULT:
  - selenium_appium: selenium #appium 
 selenium:
- - selenium_jar: java -jar D:\\app\\appium_study\\img\\selenium-server-standalone-3.0.1.jar
+ - selenium_jar: java -jar /Users/jiang/git/appiumandselenium/img/selenium-server-standalone-3.0.1.jar
  - sel_remote:  http://127.0.0.1:4444/wd/hub
- - open_url:  http://182.254.228.211:9000/index.php/Admin/index/login.html
+ - open_url:  http://document.inkwork.cn/login.html
