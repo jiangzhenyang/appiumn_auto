@@ -14,7 +14,7 @@ class ApkInfo():
         return str(size) + "M"
     # 得到版本
     def get_apk_version(self):
-        cmd = "aapt dump badging " + self.apkpath + " | grep versionName"
+       # cmd = "aapt dump badging " + self.apkpath + " | grep versionName"
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
@@ -26,7 +26,7 @@ class ApkInfo():
 
     #得到应用名字
     def get_apk_name(self):
-        cmd = "aapt dump badging " + self.apkpath + " | grep application-label: "
+       # cmd = "aapt dump badging " + self.apkpath + " | grep application-label: "
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
@@ -38,7 +38,7 @@ class ApkInfo():
 
     #得到包名
     def get_apk_pkg(self):
-        cmd = "aapt dump badging " + self.apkpath + " | grep package:"
+       # cmd = "aapt dump badging " + self.apkpath + " | grep package:"
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,
@@ -50,7 +50,7 @@ class ApkInfo():
 
     #得到启动类
     def get_apk_activity(self):
-        cmd = "aapt dump badging " + self.apkpath + " | grep launchable-activity:"
+       # cmd = "aapt dump badging " + self.apkpath + " | grep launchable-activity:"
         result = ""
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
                              stderr=subprocess.PIPE,

@@ -17,27 +17,28 @@ PATH = lambda p: os.path.abspath(
 
 
 def appium_testcase(l_devices):
-    apk_base = apkBase.apkInfo(PATH("../img/monkneyTest.apk"))
-    desired_caps = {}
-    desired_caps['platformName'] = l_devices["platformName"]
-    desired_caps['platformVersion'] = l_devices["platformVersion"]
-    desired_caps['deviceName'] = l_devices["deviceName"]
-    desired_caps['appPackage'] = apk_base.get_apk_pkg()
-    desired_caps['appActivity'] = apk_base.get_apk_activity()
-    desired_caps['udid'] = l_devices["deviceName"]
-    # desired_caps['app'] = PATH( '../img/t.apk')
-    desired_caps["unicodeKeyboard"] = "True"
-    desired_caps["resetKeyboard"] = "True"
-    common.PACKAGE = apk_base.get_apk_pkg()
-    remote = "http://127.0.0.1:" + str(l_devices["port"]) + "/wd/hub"
-    driver = webdriver.Remote(remote, desired_caps)
-    # common.DRIVER = driver
-    # common.FLAG = False
-    return driver
+#     apk_base = apkBase.apkInfo(PATH("../img/monkneyTest.apk"))
+#     desired_caps = {}
+#     desired_caps['platformName'] = l_devices["platformName"]
+#     desired_caps['platformVersion'] = l_devices["platformVersion"]
+#     desired_caps['deviceName'] = l_devices["deviceName"]
+#     desired_caps['appPackage'] = apk_base.get_apk_pkg()
+#     desired_caps['appActivity'] = apk_base.get_apk_activity()
+#     desired_caps['udid'] = l_devices["deviceName"]
+#     # desired_caps['app'] = PATH( '../img/t.apk')
+#     desired_caps["unicodeKeyboard"] = "True"
+#     desired_caps["resetKeyboard"] = "True"
+#     common.PACKAGE = apk_base.get_apk_pkg()
+#     remote = "http://127.0.0.1:" + str(l_devices["port"]) + "/wd/hub"
+#     driver = webdriver.Remote(remote, desired_caps)
+#     # common.DRIVER = driver
+#     # common.FLAG = False
+#     return driver
+    pass
 def selenium_testcase(get_devices):
-    chromedriver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
-    os.environ["webdriver.chrome.driver"] = chromedriver
-    driver = web.Chrome(chromedriver)
+#     chromedriver = "C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe"
+#     os.environ["webdriver.chrome.driver"] = chromedriver
+    driver = web.Chrome()
     # driver = web.PhantomJS(executable_path=phantomjs_path, service_log_path=os.path.devnull)
     common.DRIVER = driver
     common.FLAG = False
@@ -51,17 +52,17 @@ class TestInterfaceCase(unittest.TestCase):
 
     @staticmethod
     def setUpClass():
-        # global driver
-        # ga = get_evices()
-        # common.SELENIUM_APPIUM = ga.selenium_appium
-        # if common.SELENIUM_APPIUM == common.APPIUM: # appium入口
-        #     if ga.platformName == common.ANDROID and common.FLAG:
-        #         appium_testcase(ga)
-        # if common.SELENIUM_APPIUM == common.SELENIUM and common.FLAG: # selenium入口
-        #     selenium_testcase(ga)
-        #     # driver.get("http://www.baidu.com")
-        #     # data = driver.title
-            pass
+#         global driver
+#         ga = get_evices()
+#          common.SELENIUM_APPIUM = ga.selenium_appium
+#          if common.SELENIUM_APPIUM == common.APPIUM: # appium入口
+#              if ga.platformName == common.ANDROID and common.FLAG:
+#                  appium_testcase(ga)
+#          if common.SELENIUM_APPIUM == common.SELENIUM and common.FLAG: # selenium入口
+#              selenium_testcase(ga)
+#             driver.get("http://www.baidu.com")
+#              data = driver.title
+         pass
     def setUp(self):
         if self.l_devices["platformName"] == common.ANDROID:
             self.driver = appium_testcase(self.l_devices)

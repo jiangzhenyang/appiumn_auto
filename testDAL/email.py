@@ -44,8 +44,8 @@ def send_mail(Memail):
     msg = MIMEMultipart()
 
     # msg = MIMEText('hello, send by Python...', 'plain', 'utf-8')
-    msg['From'] = _format_addr('施坤<%s>' % from_addr)
-    msg['To'] = _format_addr('大人 <%s>' % Memail.to_addr)
+    msg['From'] = _format_addr('时讯汇科技（北京）有限公司<%s>' % from_addr)
+    msg['To'] = _format_addr('客户 <%s>' % Memail.to_addr)
     msg['Subject'] = Header(Memail.headerMsg, 'utf-8').encode()
 
     msg.attach(MIMEText(Memail.attach, 'plain', 'utf-8'))

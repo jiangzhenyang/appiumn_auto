@@ -8,7 +8,7 @@ import subprocess
 from common.variable import GetVariable as common
 # 得到手机信息
 def get_phone_info(devices):
-    cmd = "adb -s "+ devices +" shell cat /system/build.prop "
+    #cmd = "adb -s "+ devices +" shell cat /system/build.prop "
     # phone_info = os.popen(cmd, mode="r").readlines()
     phone_info =subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE).stdout.readlines()
 
@@ -37,7 +37,7 @@ def get_phone_info(devices):
 
 # 得到最大运行内存
 def get_men_total(devices):
-    cmd = "adb -s "+devices+ " shell cat /proc/meminfo"
+    #cmd = "adb -s "+devices+ " shell cat /proc/meminfo"
     get_cmd = os.popen(cmd).readlines()
     men_total = 0
     men_total_str = "MemTotal"
@@ -48,7 +48,8 @@ def get_men_total(devices):
     return int(men_total)
 # 得到几核cpu
 def get_cpu_kel(devices):
-    cmd = "adb -s " +devices +" shell cat /proc/cpuinfo"
+    #cmd = "adb -s " +devices +" shell cat /proc/cpuinfo"
+    
     get_cmd = os.popen(cmd).readlines()
     find_str = "processor"
     int_cpu = 0
@@ -59,7 +60,7 @@ def get_cpu_kel(devices):
 
 # 得到手机分辨率
 def get_app_pix(devices):
-    result = os.popen("adb -s " + devices+ " shell wm size", "r")
+    #result = os.popen("adb -s " + devices+ " shell wm size", "r")
     return result.readline().split("Physical size:")[1]
 # get_phone_info("DU2TAN15AJ049163")
 # get_phone_info("MSM8926")

@@ -240,6 +240,6 @@ class AppCase():
                         log = _read_crash[i]["log"]
                         rand_log = baseRandom.get_ran_dom()+".log" # 随机的log文件
                         push_log = common.APACHE_PATH+rand_log # 存到apache的路径里面
-                        os.system("adb -s "+ self.devices+" pull "+log+" " +push_log)
+                      #  os.system("adb -s "+ self.devices+" pull "+log+" " +push_log)
                         return common.PROTOCOL + common.HOST +"/"+common.APACHE_PATH+rand_log
         return log

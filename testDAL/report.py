@@ -42,10 +42,10 @@ class OperateReport:
 
 
 
-        _write_center(worksheet, "B3", self.data['app_name'], self.wd)
-        _write_center(worksheet, "B4", self.data['app_size'], self.wd)
-        _write_center(worksheet, "B5", self.data['app_version'], self.wd)
-        _write_center(worksheet, "B6", self.data['test_date'], self.wd)
+#         _write_center(worksheet, "B3", self.data['app_name'], self.wd)
+#         _write_center(worksheet, "B4", self.data['app_size'], self.wd)
+#         _write_center(worksheet, "B5", self.data['app_version'], self.wd)
+#         _write_center(worksheet, "B6", self.data['test_date'], self.wd)
 
         _write_center(worksheet, "C3", "用例总数", self.wd)
         _write_center(worksheet, "C4", "通过总数", self.wd)
@@ -55,10 +55,10 @@ class OperateReport:
 
 
         # data1 = {"test_sum": 100, "test_success": 80, "test_failed": 20, "test_date": "2018-10-10 12:10"}
-        _write_center(worksheet, "D3", self.data['test_sum'], self.wd)
-        _write_center(worksheet, "D4", self.data['test_success'], self.wd)
-        _write_center(worksheet, "D5", self.data['test_failed'], self.wd)
-        _write_center(worksheet, "D6", self.data['test_sum_date'], self.wd)
+#         _write_center(worksheet, "D3", self.data['test_sum'], self.wd)
+#         _write_center(worksheet, "D4", self.data['test_success'], self.wd)
+#         _write_center(worksheet, "D5", self.data['test_failed'], self.wd)
+#         _write_center(worksheet, "D6", self.data['test_sum_date'], self.wd)
 
         _write_center(worksheet, "E3", "脚本语言", self.wd)
 
