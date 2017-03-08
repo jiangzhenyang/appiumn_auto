@@ -15,8 +15,8 @@ class testComment(TestInterfaceCase):
         self.bc.execCase(PATH("../yaml/web/my_comment.yaml"), test_name="my_comment", isLast="1")
 
     @staticmethod
-    def tearDownClass():
-        common.DRIVER.quit()
+#     def tearDownClass():
+#         common.DRIVER.quit()
     def test_home(self):
         self.my_comment()
     # def test_home_shopcart(self):
