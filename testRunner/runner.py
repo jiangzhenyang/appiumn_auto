@@ -10,6 +10,7 @@ from common import reportPhone
 from testRunner.runnerBase import TestInterfaceCase
 # from testCase.login import testLogin
 # from testCase.work import testContact
+from selenium import webdriver
 from testCase.web.comment import testComment
 from testCase.monkey import testMonkey
 from testBLL import email as b_email
@@ -35,6 +36,7 @@ PATH = lambda p: os.path.abspath(
 data = {"init":[], "info":[]}
 def get_devices():
     return operateYaml.getYam(PATH("../devices.yaml"))
+    ga=get_devices()
 def get_email():
     m_email = memail.GetEmail()
     m_email.file = PATH( '../email.ini' )
@@ -77,15 +79,8 @@ def get_common_web_report(start_test_time, endtime, starttime):
     pass
 
 def runnerCaseWeb():
-    start_test_time = dataToString.getStrTime(time.localtime(), "%Y-%m-%d %H:%M %p")
-    print (start_test_time)
-    starttime = datetime.datetime.now()
-    suite = unittest.TestSuite()
-    suite.addTest(TestInterfaceCase.parametrize(testMonkey, l_devices=l_devices))
-    unittest.TextTestRunner(verbosity=2).run(suite)
-    endtime = datetime.datetime.now()
-    get_common_web_report(start_test_time, endtime, starttime)
     testComments=testComment("runTest")
+    testComments.test_home()
     print (testComments)
     return testComments
 def runnerPool():
@@ -108,14 +103,14 @@ def runnerPool():
 
 def runnerCaseApp(l_devices):
 
-#     start_test_time = dataToString.getStrTime(time.localtime(), "%Y-%m-%d %H:%M %p")
-#     starttime = datetime.datetime.now()
-#     suite = unittest.TestSuite()
-#     suite.addTest(TestInterfaceCase.parametrize(testMonkey, l_devices=l_devices))
-#     unittest.TextTestRunner(verbosity=2).run(suite)
-#     endtime = datetime.datetime.now()
-#     get_common_report(start_test_time, endtime, starttime)
-#     report()
+    start_test_time = dataToString.getStrTime(time.localtime(), "%Y-%m-%d %H:%M %p")
+    starttime = datetime.datetime.now()
+    suite = unittest.TestSuite()
+    suite.addTest(TestInterfaceCase.parametrize(testMonkey, l_devices=l_devices))
+    unittest.TextTestRunner(verbosity=2).run(suite)
+    endtime = datetime.datetime.now()
+    get_common_report(start_test_time, endtime, starttime)
+    report()
     pass
 def report():
     workbook = xlsxwriter.Workbook('GetReport.xlsx')
@@ -134,13 +129,13 @@ def open_web_server():
 if __name__ == '__main__':
         ga = get_devices()
       #  webserver=open_web_server()
-        reports=report()
+       # reports=report()
      #   emails=get_email()
         runnerCase=runnerCaseWeb()
 #        if adbCommon.attached_devices():
 #           p = Process(target=open_web_server, args=())
 #            p.start()
-
+  
 #            appium_server = server.AppiumServer(ga)
 #            appium_server.start_server()
 #             while not appium_server.is_runnnig():

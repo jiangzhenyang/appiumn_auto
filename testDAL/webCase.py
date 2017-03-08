@@ -1,7 +1,8 @@
+from lib2to3.tests.support import driver
 __author__ = 'shikun'
 # -*- coding: utf-8 -*-
 import json
-
+from selenium import webdriver
 from common import operateYaml, operateElement as bo
 from common.variable import GetVariable as common
 from common import testLog
@@ -34,19 +35,24 @@ class WebCase():
     def execCase(self, f, **kwargs):
         logTest = testLog.myLog().getLog()
         bc = self.getModeList(f)
-        go = bo.OperateElement(driver=common.DRIVER)
+        print (bc)
+        chromes=webdriver.Chrome()
+     
+        go = bo.OperateElement(driver=chromes)
+        
+        print (go)
         ch_check = bc[-1]
         for k in bc:
             if k["operate_type"] != "false":
                 if go.operate_element(k)== False:
-                     logTest.checkPointNG(common.DRIVER, kwargs["test_name"], kwargs["test_name"])
-                     logTest.resultNG(kwargs["test_name"], "找不页面元素")
+                    logTest.checkPointNG(chromes, kwargs["test_name"], kwargs["test_name"])
+                    logTest.resultNG(kwargs["test_name"], "找不页面元素")
         if go.findElement(ch_check):
             common.test_success += 1
             self.GetWebInfoCase.test_result = "成功"
             logTest.resultOK(kwargs["test_name"])
         else:
-            logTest.checkPointNG(common.DRIVER, kwargs["test_name"], kwargs["test_name"])
+            logTest.checkPointNG(chromes, kwargs["test_name"], kwargs["test_name"])
             common.test_failed += 1
             test_reason = "检查不到元素"
             self.GetWebInfoCase.test_result = "失败"
@@ -56,7 +62,7 @@ class WebCase():
         self.GetWebInfoCase.test_module = self.test_module
         common.test_sum += 1
 
-        common.RESULT["info"].append(json.loads(json.dumps(self.GetWebInfoCase().to_primitive())))
-        if kwargs["isLast"] == "1":
+#       common.RESULT["info"].append(json.loads(json.dumps(self.GetWebInfoCase().to_primitive())))
+#        if kwargs["isLast"] == "1":
         # 最后case要写最下面的统计步骤
-            common.RRPORT["info"].append(common.RESULT["info"])
+#           common.RRPORT["info"].append(common.RESULT["info"])

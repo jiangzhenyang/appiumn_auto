@@ -1,5 +1,4 @@
-__author__ = 'shikun'
-
+# -*- coding:utf-8 -*-
 import logging
 import time
 import os
@@ -7,7 +6,7 @@ from time import sleep
 import threading
 
 class Log:
-
+     
     def __init__(self):
 
         global logger, resultPath, logPath
@@ -60,8 +59,11 @@ class Log:
         """
         reportPath = os.path.join(logPath, "report.txt")
         flogging = open(reportPath, "a")
-        try:
+        try:    
+            print (result)       
             flogging.write(result+"\n")
+        except Exception as e:
+            print (e)
         finally:
             flogging.close()
         pass

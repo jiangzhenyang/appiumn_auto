@@ -33,7 +33,8 @@ class GetVariable(object):
     SEND_KEYS = "send_keys"
     FIND_STR = "find_str"
     WAIT_TIME = 5
-
+    test_failed=0
+    test_sum=0
     #selenium
     SEND_CODE = "send_code" # 输入验证码
 

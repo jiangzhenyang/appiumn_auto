@@ -1,6 +1,7 @@
 __author__ = 'shikun'
 # -*- coding: utf-8 -*-
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver import chrome 
 import selenium.common.exceptions
 from common.variable import GetVariable as common
 import time
@@ -18,13 +19,15 @@ class OperateElement():
         find_type: find类型
         '''
         try:
-            WebDriverWait(self.driver, common.WAIT_TIME).until(lambda x: elements_by(mOperate, self.driver))
+            WebDriverWait(self.driver, common.WAIT_TIME).until(lambda x: elements_by(mOperate,self.driver))
             return True
         except selenium.common.exceptions.TimeoutException:
             return False
         except selenium.common.exceptions.NoSuchElementException:
             print("找不到数据")
             return False
+        except Exception as e:
+            print ("Error: ", e)
 
 
     def operate_element(self,  mOperate):
@@ -49,7 +52,7 @@ def operate_click(mOperate,cts):
     if mOperate["find_type"] == common.find_elements_by_id or mOperate["find_type"] == common.find_elements_by_name:
         elements_by(mOperate, cts)[mOperate["index"]].click()
     # 记录运行过程中的一些系统日志，比如闪退会造成自动化测试停止
-    if common.SELENIUM_APPIUM == common.APPIUM:
+    if common.SELENIUM_APPIUM == common.SELENIUM:
         # errorLog.get_error(log=mOperate["log"], devices=mOperate["devices"])
         pass
 # 左滑动
@@ -68,8 +71,6 @@ def opreate_swipe_left(mOperate, cts):
 
 def send_keys(mOperate,cts):
     elements_by(mOperate, cts).send_keys(mOperate["text"])
-
-
 # 封装常用的标签
 def elements_by(mOperate, cts):
     elements = {

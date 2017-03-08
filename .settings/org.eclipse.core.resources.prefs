@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//common/operateElement.py=utf-8
+encoding//common/testLog.py=utf-8
 encoding//testBLL/appCase.py=utf-8
 encoding//testBLL/webCase.py=utf-8
 encoding//testDAL/appCase.py=utf-8
